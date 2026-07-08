@@ -1,4 +1,9 @@
-# FlyRank ML Internship — Starter Repo
+
+# FlyRank Machine Learning Internship
+
+## 👨‍💻 Intern
+
+**Muhammad Usman Shakir**
 
 **Applied Search Intelligence: Google Search Ranking & Discoverability**
 
@@ -16,6 +21,11 @@ no private client data, no setup headaches.
 
 ---
 
+## 📖 Repository Purpose
+
+This repository contains my completed assignments, notebooks, and experiments for the FlyRank Machine Learning Internship.
+
+The goal of this internship is to learn practical Machine Learning by building and understanding real-world ML pipelines using anonymized search data.
 ## Quickstart — first win in 2 minutes
 
 The fastest path is Google Colab (one click, zero install). Open Notebook 1 and run all cells:
@@ -30,6 +40,26 @@ The fastest path is Google Colab (one click, zero install). Open Notebook 1 and 
  **Weeks 3+ — The full release (~79M rows) via DuckDB, no download needed** — hosted at
  [`FlyRank/internship-warehouse`](https://huggingface.co/datasets/FlyRank/internship-warehouse) (gated: request access + accept the data-use terms, approval is instant)
 
+
+## ✅ Progress
+
+- [x] Phase 1 – Setup
+- [x] Notebook 01 – First Look & Discovery
+- [x] Notebook 02 – First Readable Model
+- [ ] Week 1 Research Question
+- [ ] Week 2 Assignment
+- [ ] Capstone Project
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Google Colab
+- GitHub
 ### Prefer local?
 
 ```bash
