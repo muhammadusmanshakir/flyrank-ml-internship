@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Content Opportunity Scoring</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<h1>AI-Powered Content Opportunity Scoring Using Search Intelligence</h1>
+
+<p class="subtitle">
+FlyRank Machine Learning Internship Capstone Project
+</p>
+
+</div>
+
+</header>
+
+<nav>
+
+<a href="#abstract">Abstract</a>
+
+<a href="#introduction">Introduction</a>
+
+<a href="#data">Data</a>
+
+<a href="#method">Methodology</a>
+
+<a href="#results">Results</a>
+
+<a href="#recommendations">Recommendations</a>
+
+<a href="#limitations">Limitations</a>
+
+<a href="#reproducibility">Reproducibility</a>
+
+</nav>
+
+<div class="container">
+
+<section id="abstract">
+
+<h2>Abstract</h2>
+
+<p>
+
+This project investigates how historical search performance and engagement metrics
+can be used to identify content pages that deserve attention from SEO teams.
+Using the FlyRank ML Internship Warehouse dataset, a supervised machine learning
+workflow was developed to estimate a content opportunity score for each page.
+Historical Google Search Console and Google Analytics signals were transformed
+into predictive features and modeled using a Random Forest Regressor.
+The resulting ranking provides decision support for prioritizing content updates
+while following responsible machine learning practices and avoiding data leakage.
+
+</p>
+
+</section>
+
+<section id="introduction">
+
+<h2>Introduction</h2>
+
+<p>
+
+Large websites often contain thousands of pages, making manual content review
+impractical. Search teams need an efficient method for identifying which pages
+should be refreshed first.
+
+</p>
+
+<p>
+
+The objective of this project is to build a repeatable machine learning workflow
+that ranks content pages according to their optimization opportunity using
+historical search intelligence data.
+
+</p>
+
+<p>
+
+This project is intended as decision support rather than proof of Google's ranking
+algorithms or causal relationships.
+
+</p>
+
+</section>
+
+<section id="data">
+
+<h2>Dataset</h2>
+
+<table>
+
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>Dataset</td>
+<td>FlyRank ML Internship Warehouse</td>
+</tr>
+
+<tr>
+<td>Tables</td>
+<td>fact_daily, dim_content</td>
+</tr>
+
+<tr>
+<td>Time Window</td>
+<td>March 2026</td>
+</tr>
+
+<tr>
+<td>Excluded</td>
+<td>Private client identifiers, future information, raw domains</td>
+</tr>
+
+</table>
+
+</section>
+
+<section id="method">
+
+<h2>Methodology</h2>
+
+<ul>
+
+<li>Task Type: Regression</li>
+
+<li>Model: Random Forest Regressor</li>
+
+<li>Baseline: Mean Opportunity Score</li>
+
+<li>Validation: Train/Test Split</li>
+
+<li>Leakage checks performed before modeling</li>
+
+</ul>
+
+<h3>Features Used</h3>
+
+<ul>
+
+<li>Google Search Impressions</li>
+
+<li>Google Search Clicks</li>
+
+<li>Average Position</li>
+
+<li>Sessions</li>
+
+<li>Pageviews</li>
+
+<li>Engaged Sessions</li>
+
+<li>Scroll Events</li>
+
+</ul>
+
+</section>
+
+<section id="results">
+
+<h2>Results</h2>
+
+<table>
+
+<tr>
+
+<th>Model</th>
+
+<th>MAE</th>
+
+</tr>
+
+<tr>
+
+<td>Baseline</td>
+
+<td>41.37</td>
+
+</tr>
+
+<tr>
+
+<td>Random Forest</td>
+
+<td>0.224</td>
+
+</tr>
+
+</table>
+
+<p>
+
+<strong>Random Forest R²:</strong> 0.997
+
+</p>
+
+<h3>Model Comparison</h3>
+
+<img src="images/model_comparison.png" alt="Model Comparison">
+
+<h3>Feature Importance</h3>
+
+<img src="images/feature_importance.png" alt="Feature Importance">
+
+<h3>Opportunity Score Distribution</h3>
+
+<img src="images/opportunity_distribution.png" alt="Opportunity Distribution">
+
+</section>
+</section>
+  <section id="recommendations">
+
+<h2>Ranked Recommendations</h2>
+
+<p>
+The trained model was used to rank pages according to their predicted opportunity
+score. Pages with the highest scores should receive priority during content
+optimization.
+</p>
+
+<ol>
+
+<li>Refresh pages with declining organic traffic.</li>
+
+<li>Improve titles and meta descriptions for pages with high impressions but low CTR.</li>
+
+<li>Update outdated content using current information.</li>
+
+<li>Improve internal linking for valuable content.</li>
+
+<li>Monitor pages with strong performance and protect them from unnecessary changes.</li>
+
+</ol>
+
+</section>
+
+<section id="limitations">
+
+<h2>Limitations</h2>
+
+<ul>
+
+<li>This project identifies associations rather than causal relationships.</li>
+
+<li>The model depends on historical search performance.</li>
+
+<li>Results are intended for decision support.</li>
+
+<li>No private client information is included.</li>
+
+<li>Future Google ranking behavior cannot be predicted with certainty.</li>
+
+</ul>
+
+</section>
+
+<section id="reproducibility">
+
+<h2>Reproducibility</h2>
+
+<p>
+
+All notebooks, code, and documentation are publicly available in the GitHub repository.
+
+</p>
+
+<p>
+
+Repository:
+
+<br><br>
+
+<a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank">
+https://github.com/muhammadusmanshakir/flyrank-ml-internship
+</a>
+
+</p>
+
+<p>
+
+Notebook Location:
+
+</p>
+
+<ul>
+
+<li>Week 1 – Research Question</li>
+
+<li>Week 2 – ML Task Framing</li>
+
+<li>Week 3 – Data Contract</li>
+
+<li>Capstone Notebook</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Acknowledgements</h2>
+
+<p>
+
+Built as part of the <strong>FlyRank Machine Learning Internship</strong>.
+
+</p>
+
+<p>
+
+Built on the FlyRank ML Internship dataset.
+
+</p>
+
+<p>
+
+Special thanks to FlyRank for providing the anonymized warehouse dataset used in this research.
+
+</p>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Muhammad Usman Shakir
+
+</p>
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
