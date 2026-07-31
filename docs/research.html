@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Research paper for the AI-Powered Content Opportunity Scoring project developed during the FlyRank Machine Learning Internship.">
+
+    <title>Research | AI-Powered Content Opportunity Scoring</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        AI Search Intelligence
+
+    </div>
+
+    <div class="menu-toggle"
+         id="menu-toggle">
+
+        ☰
+
+    </div>
+
+    <ul class="nav-links"
+        id="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="research.html">Research</a></li>
+
+        <li><a href="methodology.html">Methodology</a></li>
+
+        <li><a href="results.html">Results</a></li>
+
+        <li><a href="recommendations.html">Recommendations</a></li>
+
+        <li><a href="about.html">About</a></li>
+
+        <li>
+
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
+               target="_blank">
+
+                GitHub
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <button id="theme-toggle">
+
+                🌙
+
+            </button>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            🚀 FlyRank Machine Learning Internship
+
+        </span>
+
+        <h1>
+
+            Research Paper
+
+        </h1>
+
+        <h2>
+
+            AI-Powered Content Opportunity Scoring
+
+        </h2>
+
+        <p class="description">
+
+            This research explores how machine learning can be
+            applied to large-scale Search Intelligence data to
+            identify valuable content opportunities, prioritize
+            optimization efforts, and support strategic SEO
+            decision-making through predictive analytics.
+
+        </p>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="images/ai-illustration.svg"
+             class="hero-img"
+             alt="Artificial Intelligence Illustration">
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- ABSTRACT -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Abstract
+
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            Search Intelligence platforms generate millions of
+            records describing website visibility, engagement,
+            and search performance. Extracting actionable
+            insights from this data manually is both difficult
+            and time-consuming.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            This research investigates the use of a Random Forest
+            Regression model to predict content opportunity
+            scores using engineered features derived from the
+            FlyRank Search Intelligence Warehouse.
+
+            Model performance was evaluated using Mean Absolute
+            Error (MAE) and the coefficient of determination
+            (R²), demonstrating that machine learning provides
+            an effective approach for supporting content
+            optimization decisions.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- INTRODUCTION -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Introduction
+
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            Modern organizations publish thousands of web pages,
+            making it increasingly difficult to determine which
+            content should be updated, improved, or expanded.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            Traditional SEO analysis often depends on manual
+            review and expert judgement, which may not scale
+            efficiently for large datasets.
+
+            Machine learning offers an intelligent alternative
+            by identifying patterns within historical search
+            performance and automatically predicting which
+            content provides the greatest optimization
+            opportunities.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PROBLEM STATEMENT -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Problem Statement
+
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            Large Search Intelligence datasets contain valuable
+            information, yet discovering which pages deserve
+            immediate optimization remains challenging.
+
+            This research aims to develop a repeatable,
+            privacy-preserving machine learning workflow capable
+            of transforming historical search metrics into
+            meaningful opportunity scores that assist SEO
+            professionals in making informed decisions.
+
+        </p>
+
+    </div>
+
+</section>
+<!-- ========================================= -->
+<!-- RESEARCH OBJECTIVES -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Research Objectives
+
+    </h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+
+            <h3>
+
+                🎯 Objective 1
+
+            </h3>
+
+            <p>
+
+                Design a repeatable machine learning workflow
+                for analyzing large-scale Search Intelligence
+                datasets.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                📊 Objective 2
+
+            </h3>
+
+            <p>
+
+                Predict content opportunity scores using
+                engineered search visibility and engagement
+                features.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🤖 Objective 3
+
+            </h3>
+
+            <p>
+
+                Evaluate Random Forest Regression against a
+                baseline model using standard regression
+                performance metrics.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🚀 Objective 4
+
+            </h3>
+
+            <p>
+
+                Generate ranked recommendations that help SEO
+                professionals prioritize optimization efforts.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- RESEARCH QUESTION -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Research Question
+
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            <strong>
+
+                Can machine learning accurately predict high-value
+                content opportunities using Search Intelligence
+                data while providing reliable recommendations for
+                SEO optimization?
+
+            </strong>
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- RESEARCH METHODOLOGY -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Research Method
+
+    </h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <h3>
+
+                📥 Data Collection
+
+            </h3>
+
+            <p>
+
+                Retrieve Search Intelligence data from the
+                FlyRank warehouse using DuckDB.
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>
+
+                🧹 Data Preparation
+
+            </h3>
+
+            <p>
+
+                Clean missing values, transform data types,
+                and prepare the dataset for analysis.
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>
+
+                ⚙️ Feature Engineering
+
+            </h3>
+
+            <p>
+
+                Create meaningful numerical features from
+                search visibility and engagement metrics.
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>
+
+                🤖 Model Training
+
+            </h3>
+
+            <p>
+
+                Train a Random Forest Regression model to
+                predict content opportunity scores.
+
+            </p>
+
+        </div>
+
+        <div class="timeline-item">
+
+            <h3>
+
+                📈 Model Evaluation
+
+            </h3>
+
+            <p>
+
+                Evaluate prediction quality using Mean
+                Absolute Error (MAE) and R² Score.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- TECHNOLOGIES USED -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Technologies Used
+
+    </h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+
+            <h3>
+
+                🐍 Python
+
+            </h3>
+
+            <p>
+
+                Primary programming language used throughout
+                the project.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🗄 DuckDB
+
+            </h3>
+
+            <p>
+
+                High-performance analytical database for
+                querying large datasets efficiently.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🐼 Pandas
+
+            </h3>
+
+            <p>
+
+                Data preprocessing, cleaning,
+                and feature engineering.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🔢 NumPy
+
+            </h3>
+
+            <p>
+
+                Numerical computing and efficient
+                array operations.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🤖 Scikit-Learn
+
+            </h3>
+
+            <p>
+
+                Machine learning algorithms,
+                preprocessing, and evaluation.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🌲 Random Forest
+
+            </h3>
+
+            <p>
+
+                Regression model used to predict
+                content opportunity scores.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================================= -->
+<!-- EXPECTED CONTRIBUTIONS -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Expected Contributions
+
+    </h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+
+            <h3>
+
+                📈 Smarter SEO Decisions
+
+            </h3>
+
+            <p>
+
+                Demonstrates how predictive analytics can help
+                SEO professionals prioritize optimization
+                opportunities using data instead of intuition.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                🤖 Practical Machine Learning
+
+            </h3>
+
+            <p>
+
+                Applies supervised machine learning to solve
+                a real-world business problem using industry
+                data.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                ⚡ Scalable Workflow
+
+            </h3>
+
+            <p>
+
+                Provides a repeatable data processing pipeline
+                that can be adapted to larger Search
+                Intelligence datasets.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>
+
+                📚 Research Foundation
+
+            </h3>
+
+            <p>
+
+                Creates a strong foundation for future
+                improvements including advanced models,
+                real-time prediction, and dashboard
+                integration.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CONCLUSION -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Conclusion
+
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            This research demonstrates that machine learning
+            provides an effective solution for identifying
+            high-value content opportunities from large-scale
+            Search Intelligence data.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            By combining structured data preprocessing,
+            feature engineering, Random Forest Regression,
+            and rigorous model evaluation, the project
+            establishes a practical workflow capable of
+            supporting data-driven SEO decision-making.
+
+        </p>
+
+        <br>
+
+        <p>
+
+            The findings illustrate how Artificial
+            Intelligence can assist organizations in
+            prioritizing optimization efforts while reducing
+            manual analysis and improving scalability.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <div class="card" style="text-align:center;">
+
+        <h2>
+
+            Continue Exploring the Project
+
+        </h2>
+
+        <br>
+
+        <p>
+
+            Learn how the dataset was processed,
+            features were engineered,
+            and the Random Forest Regression model
+            was developed in the next section.
+
+        </p>
+
+        <br><br>
+
+        <a href="methodology.html"
+           class="btn primary">
+
+            View Methodology →
+
+        </a>
+
+        <a href="results.html"
+           class="btn secondary">
+
+            Results
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>
+
+            AI-Powered Content Opportunity Scoring
+
+        </h2>
+
+        <p>
+
+            FlyRank Machine Learning Internship Capstone
+
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="research.html">Research</a>
+
+            <a href="methodology.html">Methodology</a>
+
+            <a href="results.html">Results</a>
+
+            <a href="recommendations.html">Recommendations</a>
+
+            <a href="about.html">About</a>
+
+        </div>
+
+        <div class="footer-buttons">
+
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
+               target="_blank"
+               class="btn secondary">
+
+                GitHub Repository
+
+            </a>
+
+            <a href="https://www.linkedin.com/in/muhammadusmanshakir/"
+               target="_blank"
+               class="btn primary">
+
+                LinkedIn
+
+            </a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Muhammad Usman Shakir •
+            Built with HTML, CSS, JavaScript &
+            Machine Learning
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ========================================= -->
+<!-- BACK TO TOP -->
+<!-- ========================================= -->
+
+<button id="topBtn">
+
+    ↑
+
+</button>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

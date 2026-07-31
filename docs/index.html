@@ -2,254 +2,748 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI-Powered Content Opportunity Scoring using Machine Learning. Built during the FlyRank Machine Learning Internship by Muhammad Usman Shakir.">
+
+    <meta name="theme-color"
+          content="#2563eb">
 
     <title>AI-Powered Content Opportunity Scoring</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Favicon (Optional) -->
+    <!-- <link rel="icon" href="images/favicon.png"> -->
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
-    <!-- ========================= -->
-    <!-- Navigation -->
-    <!-- ========================= -->
+<!-- ========================= -->
+<!-- NAVIGATION -->
+<!-- ========================= -->
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <div class="logo">
-            AI Search Intelligence
+    <div class="logo">
+
+        AI Search Intelligence
+
+    </div>
+
+    <div class="menu-toggle"
+         id="menu-toggle">
+
+        ☰
+
+    </div>
+
+    <ul class="nav-links"
+        id="nav-links">
+
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="research.html">Research</a>
+        </li>
+
+        <li>
+            <a href="methodology.html">Methodology</a>
+        </li>
+
+        <li>
+            <a href="results.html">Results</a>
+        </li>
+
+        <li>
+            <a href="recommendations.html">Recommendations</a>
+        </li>
+
+        <li>
+            <a href="about.html">About</a>
+        </li>
+
+        <li>
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
+               target="_blank">
+
+                GitHub
+
+            </a>
+        </li>
+
+        <li>
+
+            <button id="theme-toggle">
+
+                🌙
+
+            </button>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            🚀 FlyRank Machine Learning Internship Capstone
+
+        </span>
+
+        <h1>
+
+            AI-Powered <br>
+
+            Content Opportunity Scoring
+
+        </h1>
+
+        <h2>
+
+            Search Intelligence using Machine Learning
+
+        </h2>
+
+        <p class="description">
+
+            An end-to-end Machine Learning project developed during the
+            FlyRank ML Internship that analyzes search intelligence data,
+            predicts content opportunity scores, and provides actionable
+            SEO recommendations using Random Forest Regression.
+
+        </p>
+
+        <div class="buttons">
+
+            <a href="research.html"
+               class="btn primary">
+
+                📄 Explore Research
+
+            </a>
+
+            <a href="results.html"
+               class="btn secondary">
+
+                📊 View Results
+
+            </a>
+
         </div>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#recommendations">Recommendations</a></li>
+    </div>
 
-            <li>
-                <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank">
-                    GitHub
-                </a>
-            </li>
-        </ul>
+    <div class="hero-image">
 
-    </nav>
+        <img src="images/ai-illustration.svg"
+             class="hero-img"
+             alt="Artificial Intelligence Illustration">
 
-    <!-- ========================= -->
-    <!-- Hero -->
-    <!-- ========================= -->
+    </div>
 
-    <section id="home" class="hero">
+</section>
+<!-- ========================================= -->
+<!-- PROJECT OVERVIEW -->
+<!-- ========================================= -->
 
-        <div class="hero-content">
+<section class="section">
 
-            <span class="badge">
-                FlyRank Machine Learning Internship Capstone
-            </span>
+    <h2 class="section-title">
 
-            <h1>
-                AI-Powered Content Opportunity Scoring
-            </h1>
+        Project Overview
 
-            <h2>
-                Machine Learning for Search Intelligence
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+            The objective of this capstone project is to identify
+            high-value SEO content opportunities using Machine Learning.
+
+            The workflow combines data preprocessing,
+            feature engineering,
+            Random Forest Regression,
+            model evaluation,
+            and explainable analytics to help SEO teams
+            make data-driven decisions.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- MACHINE LEARNING WORKFLOW -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Machine Learning Workflow
+
+    </h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+
+            <h3>📥</h3>
+
+            <h3>Collect Search Data</h3>
+
+            <p>
+
+                Import search intelligence data from the
+                FlyRank Search Intelligence Warehouse.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>🧹</h3>
+
+            <h3>Clean & Prepare Data</h3>
+
+            <p>
+
+                Handle missing values, transform features,
+                and prepare the dataset for model training.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>🤖</h3>
+
+            <h3>Train Model</h3>
+
+            <p>
+
+                Train a Random Forest Regression model
+                to predict content opportunity scores.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>📊</h3>
+
+            <h3>Evaluate Performance</h3>
+
+            <p>
+
+                Compare the trained model using
+                MAE and R² evaluation metrics.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- WHY THIS PROJECT MATTERS -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Why This Project Matters
+
+    </h2>
+
+    <div class="overview-grid">
+
+        <div class="overview-card">
+
+            <h3>🌍 Large Scale Data</h3>
+
+            <p>
+
+                Processed millions of search intelligence
+                records from the FlyRank Search Intelligence
+                Warehouse.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>⚡ High Performance</h3>
+
+            <p>
+
+                DuckDB enabled extremely fast querying
+                and efficient analysis of large datasets.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>🧠 Machine Learning</h3>
+
+            <p>
+
+                Random Forest Regression accurately predicts
+                valuable content opportunities for SEO teams.
+
+            </p>
+
+        </div>
+
+        <div class="overview-card">
+
+            <h3>📈 Business Value</h3>
+
+            <p>
+
+                Supports data-driven SEO strategies by
+                identifying pages with the greatest
+                optimization potential.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PERFORMANCE DASHBOARD -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Performance Dashboard
+
+    </h2>
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h2 class="counter"
+                data-target="78">
+
+                78M+
+
             </h2>
 
-            <p class="description">
-                A machine learning system built on the FlyRank Search Intelligence Warehouse to identify content opportunities using Random Forest Regression, feature engineering, and explainable analytics.
+            <p>
+
+                Warehouse Records
+
             </p>
 
-            <div class="buttons">
+        </div>
 
-                <a href="#research" class="btn primary">
-                    📄 Read Research
-                </a>
+        <div class="stat-card">
 
-                <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-                    target="_blank"
-                    class="btn secondary">
+            <h2>
 
-                    💻 GitHub Repository
+                0.224
 
-                </a>
+            </h2>
+
+            <p>
+
+                Random Forest MAE
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>
+
+                0.997
+
+            </h2>
+
+            <p>
+
+                R² Score
+
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>
+
+                5+
+
+            </h2>
+
+            <p>
+
+                Engineered Features
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PROJECT GALLERY -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <h2 class="section-title">
+
+        Project Gallery
+
+    </h2>
+
+    <p class="section-subtitle">
+
+        Visual insights generated throughout the machine learning workflow.
+
+    </p>
+
+    <div class="gallery">
+
+        <div class="gallery-card">
+
+            <img src="images/feature_importance.png"
+                 alt="Feature Importance">
+
+            <div class="gallery-content">
+
+                <h3>
+
+                    Feature Importance
+
+                </h3>
+
+                <p>
+
+                    Shows which engineered features contributed the most
+                    toward predicting content opportunity scores.
+
+                </p>
 
             </div>
 
         </div>
 
-        <div class="hero-image">
+        <div class="gallery-card">
 
-            <div class="circle">
-                🤖
+            <img src="images/model_comparison.png"
+                 alt="Model Comparison">
+
+            <div class="gallery-content">
+
+                <h3>
+
+                    Model Comparison
+
+                </h3>
+
+                <p>
+
+                    Performance comparison between the baseline
+                    predictor and the Random Forest Regression model.
+
+                </p>
+
             </div>
 
         </div>
 
-    </section>
+        <div class="gallery-card">
 
-    <!-- ========================= -->
-    <!-- Statistics -->
-    <!-- ========================= -->
+            <img src="images/opportunity_distribution.png"
+                 alt="Opportunity Distribution">
 
-    <section class="stats">
+            <div class="gallery-content">
 
-        <div class="stat-card">
+                <h3>
 
-            <h2>78M+</h2>
+                    Opportunity Distribution
 
-            <p>Warehouse Records</p>
+                </h3>
 
-        </div>
+                <p>
 
-        <div class="stat-card">
+                    Distribution of predicted content opportunity
+                    scores across the complete dataset.
 
-            <h2>0.224</h2>
+                </p>
 
-            <p>Random Forest MAE</p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2>0.997</h2>
-
-            <p>Model R² Score</p>
+            </div>
 
         </div>
 
-        <div class="stat-card">
+    </div>
 
-            <h2>5</h2>
+</section>
 
-            <p>Engineered Features</p>
+<!-- ========================================= -->
+<!-- MEET THE DEVELOPER -->
+<!-- ========================================= -->
 
-        </div>
+<section class="section">
 
-    </section>
+    <h2 class="section-title">
 
-    <!-- ========================= -->
-    <!-- Research -->
-    <!-- ========================= -->
+        Meet the Developer
 
-    <section id="research" class="section">
+    </h2>
 
-        <h2 class="section-title">
-            Research Overview
-        </h2>
+    <div class="developer-card">
 
-        <div class="card">
+        <img src="images/profile.png"
+             alt="Muhammad Usman Shakir"
+             class="developer-photo">
 
-            <p>
+        <h2>
 
-                This capstone project investigates how machine learning can identify high-value content opportunities using FlyRank's Search Intelligence Warehouse. A Random Forest Regression model was trained to predict search performance from content-level features and generate actionable recommendations for SEO optimization.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Results -->
-    <!-- ========================= -->
-
-    <section id="results" class="section">
-
-        <h2 class="section-title">
-
-            Model Results
+            Muhammad Usman Shakir
 
         </h2>
 
-        <div class="card">
+        <p class="developer-role">
 
-            <p>
-
-                Baseline MAE:
-                <strong>41.37</strong>
-
-            </p>
-
-            <p>
-
-                Random Forest MAE:
-                <strong>0.224</strong>
-
-            </p>
-
-            <p>
-
-                Random Forest R²:
-                <strong>0.997</strong>
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Recommendations -->
-    <!-- ========================= -->
-
-    <section id="recommendations" class="section">
-
-        <h2 class="section-title">
-
-            Ranked Recommendations
-
-        </h2>
-
-        <div class="card">
-
-            <ul>
-
-                <li>Prioritize content with the highest predicted opportunity scores.</li>
-
-                <li>Refresh declining pages before creating new content.</li>
-
-                <li>Monitor pages with low engagement despite high visibility.</li>
-
-                <li>Use feature importance to guide future content optimization.</li>
-
-            </ul>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- Footer -->
-    <!-- ========================= -->
-
-    <footer>
-
-        <p>
-
-            © 2026 Muhammad Usman Shakir
+            Software Engineering Student • Machine Learning Intern
 
         </p>
 
-        <p>
+        <p class="developer-description">
 
-            Built on the FlyRank ML Internship Dataset
+            Passionate about Artificial Intelligence, Machine Learning,
+            Data Science, and Search Intelligence.
+
+            This capstone project demonstrates practical experience in
+            data preprocessing, feature engineering,
+            Random Forest Regression,
+            model evaluation,
+            data visualization,
+            and deployment using GitHub Pages.
 
         </p>
 
-    </footer>
+        <div class="developer-tags">
 
-    <script src="script.js"></script>
+            <span>🎓 PUCIT</span>
+
+            <span>🤖 FlyRank Intern</span>
+
+            <span>🐍 Python</span>
+
+            <span>🧠 Machine Learning</span>
+
+        </div>
+
+        <div class="developer-buttons">
+
+            <a href="about.html"
+               class="btn primary">
+
+                About Me
+
+            </a>
+
+            <a href="https://github.com/muhammadusmanshakir"
+               target="_blank"
+               class="btn secondary">
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- CALL TO ACTION -->
+<!-- ========================================= -->
+
+<section class="section">
+
+    <div class="card"
+         style="text-align:center;">
+
+        <h2>
+
+            Explore the Complete Project
+
+        </h2>
+
+        <br>
+
+        <p>
+
+            Dive deeper into the research, methodology,
+            implementation, machine learning workflow,
+            experimental results, and recommendations
+            developed during the FlyRank Machine Learning Internship.
+
+        </p>
+
+        <br><br>
+
+        <a href="research.html"
+           class="btn primary">
+
+            Start Exploring
+
+        </a>
+
+        <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
+           target="_blank"
+           class="btn secondary">
+
+            GitHub Repository
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>
+
+            AI-Powered Content Opportunity Scoring
+
+        </h2>
+
+        <p>
+
+            FlyRank Machine Learning Internship Capstone
+
+        </p>
+
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="research.html">Research</a>
+
+            <a href="methodology.html">Methodology</a>
+
+            <a href="results.html">Results</a>
+
+            <a href="recommendations.html">Recommendations</a>
+
+            <a href="about.html">About</a>
+
+        </div>
+
+        <div class="footer-buttons">
+
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
+               target="_blank"
+               class="btn secondary">
+
+                GitHub Repository
+
+            </a>
+
+            <a href="https://www.linkedin.com/in/muhammadusmanshakir/"
+               target="_blank"
+               class="btn primary">
+
+                LinkedIn
+
+            </a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Muhammad Usman Shakir • Built with HTML, CSS, JavaScript, Python & Machine Learning
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ========================================= -->
+<!-- BACK TO TOP BUTTON -->
+<!-- ========================================= -->
+
+<button id="topBtn">
+
+    ↑
+
+</button>
+
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
+
