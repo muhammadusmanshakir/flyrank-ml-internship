@@ -18,7 +18,7 @@ Developed by **Muhammad Usman Shakir**
 
 ### 🔗 Website
 
-**https://YOUR-GITHUB-PAGES-URL**
+**https://muhammadusmanshakir.github.io/flyrank-ml-internship/**
 
 ### 💻 GitHub Repository
 
