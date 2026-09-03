@@ -1,9 +1,9 @@
-Capstone Report —
-Author:
-Lane:
-Repo:
-Date:
-Copy this file to work/capstone_report.md and fill it in as you build. Sections 1–8 mirror the Pass / Needs-Work rubric axes, so nothing here is optional. Sections 0 and 9 are paper sections: your deployed research paper must carry both, and they're here so you never rebuild them from memory at ship time.
+# Capstone Report — Content Opportunity Scoring
+
+- **Author:** Muhammad Usman Shakir
+- **Lane:** Search Intelligence
+- **Repo:** [https://github.com/muhammadusmanshakir/flyrank-ml-internship]
+- **Date:** 2026-09-03
 
 0. Abstract
 Five sentences, written last, placed first: question → data → method → headline result → what the output is for. This is the top of your deployed paper.
