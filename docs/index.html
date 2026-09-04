@@ -249,10 +249,11 @@
   <section id="abstract">
     <div class="section-head"><span class="section-num">00</span><h2>Abstract</h2></div>
     <div class="abstract">
-      Which pages should an editorial team review first when deciding what to refresh?
-      This paper uses 30,000 anonymized content pages from FlyRank's Content Refresh
-      dataset, comparing 90-day traffic and engagement signals against a rolling 30-day
-      window to define a declining-visibility label. A Random Forest classifier trained
+      Which pages should an editorial team review first when deciding what to refresh —
+      not for one site, but across an agency's full portfolio of clients? This paper
+      uses 30,000 anonymized content pages spanning 32 client portfolios from FlyRank's
+      Content Refresh dataset, comparing 90-day traffic and engagement signals against a
+      rolling 30-day window to define a declining-visibility label. A Random Forest classifier trained
       on 23 leak-checked features reaches F1 0.836 against a transparent
       staleness-and-visibility baseline's F1 0.352 on the same test split — but when
       validated honestly on clients the model has never seen, ROC-AUC drops from 0.795
@@ -270,6 +271,16 @@
       editorial team can't manually re-check every page on a fixed schedule, so the
       practical question isn't <em>"is this page declining?"</em> in isolation — it's
       <em>"out of everything, what should we look at first?"</em>
+    </p>
+    <p>
+      This is the real content problem behind FlyRank's Content Refresh work: an agency
+      managing editorial calendars doesn't do it for one site, it does it across many
+      client portfolios at once. The dataset behind this paper reflects that scale &mdash;
+      30,000 anonymized pages spanning 32 distinct client portfolios, not one large
+      site. A fixed policy like "refresh anything older than a year" wastes review time
+      on pages that are still performing, while a page quietly losing visibility on a
+      different client's site can sit unreviewed for a full cycle. That scheduling
+      problem, at portfolio scale, is the case study this paper works through.
     </p>
     <p>
       <strong>Unit of analysis:</strong> one row is one content page. <strong>Output:</strong>
