@@ -1,748 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Methodology behind the AI-Powered Content Opportunity Scoring project developed during the FlyRank Machine Learning Internship.">
-
-    <title>Methodology | AI-Powered Content Opportunity Scoring</title>
-
-    <!-- Google Fonts -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Favicon -->
-
-    <link rel="icon"
-          type="image/png"
-          href="images/favicon.png">
-
-    <!-- CSS -->
-
-    <link rel="stylesheet"
-          href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Baseline, target definition, model, and honest validation design for the FlyRank ML Internship capstone.">
+<title>Methodology | Content Refresh Prioritization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- ========================================= -->
-<!-- NAVIGATION -->
-<!-- ========================================= -->
-
 <nav class="navbar">
-
-    <div class="logo">
-
-        AI Search Intelligence
-
-    </div>
-
-    <div class="menu-toggle"
-         id="menu-toggle">
-
-        ☰
-
-    </div>
-
-    <ul class="nav-links"
-        id="nav-links">
-
+    <div class="logo">Content Refresh Prioritization</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
-
         <li><a href="research.html">Research</a></li>
-
-        <li><a href="methodology.html">Methodology</a></li>
-
+        <li><a href="methodology.html" class="active">Methodology</a></li>
         <li><a href="results.html">Results</a></li>
-
         <li><a href="recommendations.html">Recommendations</a></li>
-
         <li><a href="about.html">About</a></li>
-
-        <li>
-
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank"
-               rel="noopener noreferrer">
-
-                GitHub
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <button id="theme-toggle">
-
-                🌙
-
-            </button>
-
-        </li>
-
+        <li><a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank">GitHub</a></li>
+        <li><button id="theme-toggle">🌙</button></li>
     </ul>
-
 </nav>
 
-<!-- ========================================= -->
-<!-- HERO -->
-<!-- ========================================= -->
-
 <section class="hero">
-
     <div class="hero-content">
-
-        <span class="badge">
-
-            🚀 FlyRank Machine Learning Internship
-
-        </span>
-
-        <h1>
-
-            Methodology
-
-        </h1>
-
-        <h2>
-
-            End-to-End Machine Learning Pipeline for Search Intelligence
-
-        </h2>
-
+        <span class="badge">⚙️ Methodology</span>
+        <h1>Baseline, target, model, validation</h1>
+        <h2>A transparent rule first, a model second, an honest test third</h2>
         <p class="description">
-
-            This page explains the complete workflow used to prepare
-            the FlyRank Search Intelligence Warehouse,
-            engineer meaningful features,
-            train the Random Forest Regression model,
-            and evaluate its predictive performance
-            for AI-powered content opportunity scoring.
-
+            Every step here was built to survive scrutiny: a baseline checked against real
+            signal data, a target definition that doesn't leak into its own features, and
+            a validation design that tests the model the way it will actually be used.
         </p>
-
     </div>
-
     <div class="hero-image">
-
-        <img src="images/ai-illustration.svg"
-             class="hero-img"
-             alt="Artificial Intelligence Illustration">
-
+        <img src="images/ai-illustration.svg" class="hero-img" alt="Methodology illustration">
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- DATASET OVERVIEW -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Dataset Overview
-
-    </h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>
-
-                📦 Data Source
-
-            </h3>
-
-            <p>
-
-                This project utilizes the FlyRank Search Intelligence
-                Warehouse provided during the FlyRank Machine Learning
-                Internship. The warehouse contains anonymized search
-                intelligence metrics for machine learning research.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                🗄 Data Storage
-
-            </h3>
-
-            <p>
-
-                Data was accessed directly from the Hugging Face dataset
-                repository using DuckDB, allowing fast analytical queries
-                without downloading the complete warehouse locally.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                📊 Data Characteristics
-
-            </h3>
-
-            <p>
-
-                The dataset contains aggregated search visibility,
-                traffic, impressions, engagement, and ranking metrics
-                used for predictive machine learning models.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                🔒 Privacy & Compliance
-
-            </h3>
-
-            <p>
-
-                No client names, domains, URLs, search queries,
-                or confidential business information were included.
-                All analysis follows FlyRank's public-sharing guidelines.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- ========================================= -->
-<!-- DATA PROCESSING PIPELINE -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Data Processing Pipeline
-
-    </h2>
-
-    <div class="card">
-
-        <p>
-
-            Before training the machine learning model,
-            the raw search intelligence data was transformed
-            into a structured dataset suitable for prediction.
-            The complete preprocessing workflow is shown below.
-
-        </p>
-
-        <br>
-
-        <ol>
-
-            <li>
-                Connect to the FlyRank Search Intelligence Warehouse.
-            </li>
-
-            <li>
-                Retrieve relevant tables using DuckDB SQL queries.
-            </li>
-
-            <li>
-                Remove missing and inconsistent records.
-            </li>
-
-            <li>
-                Convert categorical information into numerical features.
-            </li>
-
-            <li>
-                Select useful predictors for model training.
-            </li>
-
-            <li>
-                Split the dataset into training and testing sets.
-            </li>
-
-        </ol>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- WORKFLOW DIAGRAM -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Workflow Overview
-
-    </h2>
-
+    <h2 class="section-title">Workflow overview</h2>
     <div class="workflow">
-
-        <div>
-
-            📥<br>
-            Search Warehouse
-
-        </div>
-
-        <div>
-
-            🗄<br>
-            DuckDB Queries
-
-        </div>
-
-        <div>
-
-            🧹<br>
-            Data Cleaning
-
-        </div>
-
-        <div>
-
-            ⚙️<br>
-            Feature Engineering
-
-        </div>
-
-        <div>
-
-            🤖<br>
-            Random Forest
-
-        </div>
-
-        <div>
-
-            📊<br>
-            Evaluation
-
-        </div>
-
+        <div>📥<br>Load anonymized data</div>
+        <div>✅<br>Signal checks</div>
+        <div>📏<br>Transparent baseline</div>
+        <div>🎯<br>Independent target</div>
+        <div>🌲<br>Random Forest</div>
+        <div>🔍<br>Honest validation</div>
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- FEATURE ENGINEERING -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Feature Engineering
-
-    </h2>
-
+    <h2 class="section-title">Baseline</h2>
     <div class="card">
-
-        <p>
-
-            Feature engineering converts raw search intelligence
-            information into meaningful numerical variables that
-            improve machine learning performance while maintaining
-            a reproducible workflow.
-
+        <p style="margin:0 0 12px;">
+            A transparent rule: flag a page <strong>"Review content"</strong> if
+            <code>days_since_last_update &ge; 90</code> AND <code>impressions_90d &ge;
+            1000</code>; otherwise <strong>"Monitor."</strong>
         </p>
-
-        <br>
-
-        <ul>
-
-            <li>
-
-                Aggregate search performance metrics.
-
-            </li>
-
-            <li>
-
-                Generate engagement-based indicators.
-
-            </li>
-
-            <li>
-
-                Prepare visibility and traffic measurements.
-
-            </li>
-
-            <li>
-
-                Normalize numerical values using Pandas.
-
-            </li>
-
-            <li>
-
-                Remove irrelevant or duplicated information.
-
-            </li>
-
-            <li>
-
-                Select the most informative predictive features.
-
-            </li>
-
-        </ul>
-
+        <p style="margin:0;">
+            Both signals were checked against real data before being trusted &mdash;
+            staleness and visibility were each split into buckets and inspected with
+            sample sizes, and both verdicts came back <strong>CONFIRMED</strong>: neither
+            is leaning on a signal that turned out to be noise.
+        </p>
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- MACHINE LEARNING PIPELINE -->
-<!-- ========================================= -->
+<section class="section">
+    <h2 class="section-title">Target definition</h2>
+    <div class="card">
+        <p style="margin:0;">
+            <code>decline_target</code> = 1 when a page's impressions in the most recent
+            30-day window are lower than the prior 30-day window, else 0 &mdash; built only
+            from those two window columns, neither of which is a model feature.
+        </p>
+    </div>
+</section>
 
 <section class="section">
-
-    <h2 class="section-title">
-
-        Machine Learning Pipeline
-
-    </h2>
-
+    <h2 class="section-title">Model &amp; validation design</h2>
     <div class="timeline">
-
-        <div class="timeline-item">
-
-            <h3>
-
-                1️⃣ Data Collection
-
-            </h3>
-
-            <p>
-
-                Load the FlyRank Search Intelligence Warehouse
-                into DuckDB and inspect the available tables.
-
-            </p>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <h3>
-
-                2️⃣ Data Preparation
-
-            </h3>
-
-            <p>
-
-                Handle missing values, clean records,
-                and prepare structured features.
-
-            </p>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <h3>
-
-                3️⃣ Feature Engineering
-
-            </h3>
-
-            <p>
-
-                Create meaningful numerical variables
-                representing search visibility,
-                engagement, and traffic behaviour.
-
-            </p>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <h3>
-
-                4️⃣ Model Training
-
-            </h3>
-
-            <p>
-
-                Train a Random Forest Regression model
-                using the engineered features.
-
-            </p>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <h3>
-
-                5️⃣ Model Evaluation
-
-            </h3>
-
-            <p>
-
-                Evaluate predictive performance using
-                Mean Absolute Error (MAE) and R² Score,
-                then compare with the baseline model.
-
-            </p>
-
-        </div>
-
-        <div class="timeline-item">
-
-            <h3>
-
-                6️⃣ Opportunity Ranking
-
-            </h3>
-
-            <p>
-
-                Rank content opportunities based on
-                predicted scores to support SEO decision making.
-
-            </p>
-
-        </div>
-
+        <div class="timeline-item"><h3>Model</h3><p>Random Forest Classifier (<code>n_estimators=200</code>, <code>random_state=42</code>) &mdash; captures interactions between features without assuming a linear relationship.</p></div>
+        <div class="timeline-item"><h3>Features</h3><p>23 leak-checked features: content descriptors, 90-day traffic &amp; engagement, and content metadata.</p></div>
+        <div class="timeline-item"><h3>Random split</h3><p>80/20, stratified on the target &mdash; the naive default, shown to demonstrate how much it overstates performance.</p></div>
+        <div class="timeline-item"><h3>Grouped split (honest)</h3><p><code>GroupShuffleSplit</code> by <code>client_id</code>, 80/20, zero overlap &mdash; measures generalization to a client never seen before.</p></div>
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- KEY TECHNOLOGIES -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Technologies Used
-
-    </h2>
-
+    <h2 class="section-title">Technologies used</h2>
     <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>🐍 Python</h3>
-
-            <p>
-
-                Used for data preprocessing, feature engineering,
-                model training, and evaluation.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>🗄 DuckDB</h3>
-
-            <p>
-
-                Enabled fast analytical SQL queries on the
-                FlyRank Search Intelligence Warehouse.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>📊 Pandas & NumPy</h3>
-
-            <p>
-
-                Used for data cleaning, transformation,
-                and numerical analysis.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>🤖 Scikit-learn</h3>
-
-            <p>
-
-                Implemented the Random Forest Regression model
-                and evaluated predictive performance.
-
-            </p>
-
-        </div>
-
+        <div class="overview-card"><h3>🐍 Python</h3><p>Data preprocessing, feature engineering, model training, and evaluation.</p></div>
+        <div class="overview-card"><h3>🐼 pandas &amp; NumPy</h3><p>Data cleaning, transformation, and numerical analysis.</p></div>
+        <div class="overview-card"><h3>🤖 scikit-learn</h3><p>Random Forest classifier, train/test and grouped splits, evaluation metrics.</p></div>
+        <div class="overview-card"><h3>🗄 DuckDB</h3><p>SQL queries directly over large analytical datasets during exploration.</p></div>
     </div>
-
 </section>
-
-<!-- ========================================= -->
-<!-- CONCLUSION -->
-<!-- ========================================= -->
 
 <section class="section">
-
     <div class="card" style="text-align:center;">
-
-        <h2>
-
-            Methodology Summary
-
-        </h2>
-
-        <br>
-
-        <p>
-
-            The methodology combines large-scale search intelligence,
-            efficient data processing with DuckDB,
-            feature engineering,
-            Random Forest Regression,
-            and quantitative evaluation to identify
-            high-value content opportunities.
-
+        <h2 style="margin-top:0;">Methodology summary</h2>
+        <p style="margin:0 0 14px;">
+            A transparent baseline, an independently-defined target, a Random Forest
+            classifier, and two validation strategies deliberately compared against each
+            other &mdash; built to be checkable, not just accurate.
         </p>
-
-        <br>
-
-        <p>
-
-            This workflow demonstrates a complete
-            end-to-end machine learning pipeline,
-            from raw data acquisition to actionable
-            business recommendations.
-
-        </p>
-
+        <a href="results.html" class="btn primary">See the Results →</a>
     </div>
-
 </section>
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
 
 <footer class="footer">
-
     <div class="footer-content">
-
-        <h2>
-
-            AI-Powered Content Opportunity Scoring
-
-        </h2>
-
-        <p>
-
-            FlyRank Machine Learning Internship Capstone
-
-        </p>
-
+        <h2>Content Refresh Prioritization</h2>
+        <p>FlyRank Machine Learning Internship Capstone &middot; Muhammad Usman Shakir</p>
         <div class="footer-links">
-
             <a href="index.html">Home</a>
-
             <a href="research.html">Research</a>
-
             <a href="methodology.html">Methodology</a>
-
             <a href="results.html">Results</a>
-
             <a href="recommendations.html">Recommendations</a>
-
             <a href="about.html">About</a>
-
         </div>
-
         <div class="footer-buttons">
-
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank"
-               class="btn secondary">
-
-                GitHub Repository
-
-            </a>
-
-            <a href="https://www.linkedin.com/in/muhammadusmanshakir/"
-               target="_blank"
-               class="btn primary">
-
-                LinkedIn
-
-            </a>
-
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank" class="btn secondary">GitHub Repository</a>
+            <a href="https://www.linkedin.com/in/muhammadusmanshakir" target="_blank" class="btn primary">LinkedIn</a>
         </div>
-
-        <p class="copyright">
-
-            © 2026 Muhammad Usman Shakir • Built with HTML, CSS, JavaScript & Machine Learning
-
-        </p>
-
+        <p class="copyright">Built on the <a href="https://flyrank.ai" target="_blank">FlyRank ML Internship dataset</a>. &copy; 2026 Muhammad Usman Shakir.</p>
     </div>
-
 </footer>
-
-<!-- ========================================= -->
-<!-- BACK TO TOP -->
-<!-- ========================================= -->
-
-<button id="topBtn">
-
-    ↑
-
-</button>
-
-<!-- ========================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================= -->
-
+<button id="topBtn">↑</button>
 <script src="script.js"></script>
-
 </body>
-
 </html>
-
-
