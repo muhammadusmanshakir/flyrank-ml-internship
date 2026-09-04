@@ -1,749 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Refresh Prioritization — FlyRank ML Internship Capstone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBFAF7;
+    --ink: #1B2430;
+    --ink-soft: #5B6472;
+    --teal: #0F6B66;
+    --amber: #C1622D;
+    --rule: #E4E0D8;
+    --card: #F3F1EB;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .wide{max-width:880px; margin:0 auto; padding:0 24px;}
 
-    <meta charset="UTF-8">
+  header.hero{
+    border-bottom:1px solid var(--rule);
+    padding:64px 0 40px;
+  }
+  .eyebrow{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .eyebrow a{color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(15,107,102,.35);}
+  h1{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:clamp(32px, 5vw, 46px);
+    line-height:1.14;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  .dek{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0 0 32px;
+  }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:28px;
+    font-size:14px; color:var(--ink-soft);
+    padding-top:24px; border-top:1px solid var(--rule);
+  }
+  .meta-row div span{display:block; color:var(--ink); font-weight:500; margin-top:2px;}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:36px 0 0;
+  }
+  .stat{
+    background:var(--bg);
+    padding:22px 20px;
+  }
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:28px;
+    font-weight:500;
+    color:var(--teal);
+  }
+  .stat.warn .num{color:var(--amber);}
+  .stat .label{font-size:13px; color:var(--ink-soft); margin-top:4px;}
 
-    <meta name="description"
-          content="AI-Powered Content Opportunity Scoring using Machine Learning. Built during the FlyRank Machine Learning Internship by Muhammad Usman Shakir.">
+  main{padding:8px 0 80px;}
+  section{padding:44px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
 
-    <meta name="theme-color"
-          content="#2563eb">
+  .section-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:20px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--teal);
+    white-space:nowrap;
+  }
+  h2{
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:26px;
+    margin:0;
+    letter-spacing:-0.005em;
+  }
+  h3{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    margin:28px 0 10px;
+    color:var(--ink);
+  }
+  p{margin:0 0 16px; max-width:70ch;}
+  ul, ol{margin:0 0 16px; padding-left:22px;}
+  li{margin-bottom:6px;}
+  strong{font-weight:600;}
+  code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.88em;
+    background:var(--card);
+    padding:1px 5px;
+    border-radius:3px;
+  }
+  a{color:var(--teal);}
 
-    <title>AI-Powered Content Opportunity Scoring</title>
+  .abstract{
+    background:var(--card);
+    border-left:3px solid var(--teal);
+    padding:22px 26px;
+    font-size:16.5px;
+    color:var(--ink);
+  }
 
-    <!-- Google Fonts -->
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0 8px;
+    font-size:14.5px;
+  }
+  th, td{
+    text-align:left;
+    padding:9px 12px;
+    border-bottom:1px solid var(--rule);
+  }
+  th{
+    font-weight:600;
+    color:var(--ink-soft);
+    font-size:12.5px;
+    text-transform:none;
+    border-bottom:2px solid var(--ink);
+  }
+  td.num, th.num{font-family:'IBM Plex Mono', monospace; text-align:right;}
+  tr:last-child td{border-bottom:none;}
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+  figure{margin:24px 0;}
+  figure img{width:100%; display:block; border:1px solid var(--rule);}
+  figcaption{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+  .callout{
+    border:1px solid var(--amber);
+    background:#FBF3EC;
+    padding:16px 20px;
+    font-size:15px;
+    margin:20px 0;
+  }
+  .callout strong{color:var(--amber);}
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
+  .repro-block{
+    background:var(--ink);
+    color:#E9E7DF;
+    padding:18px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    line-height:1.7;
+    overflow-x:auto;
+  }
+  .repro-block div{white-space:pre;}
 
-    <!-- Favicon (Optional) -->
-    <!-- <link rel="icon" href="images/favicon.png"> -->
+  footer{
+    padding:40px 0 60px;
+  }
+  .ack{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .ack a{color:var(--teal); font-weight:500;}
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="style.css">
+  nav.toc{
+    display:flex; flex-wrap:wrap; gap:6px 18px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding:18px 0 0;
+  }
+  nav.toc a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted var(--rule);}
+  nav.toc a:hover{color:var(--teal);}
 
+  @media (max-width:600px){
+    .stat-strip{grid-template-columns:1fr;}
+    header.hero{padding:44px 0 28px;}
+  }
+</style>
 </head>
-
 <body>
 
-<!-- ========================= -->
-<!-- NAVIGATION -->
-<!-- ========================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">FlyRank ML Internship &middot; Capstone Paper &middot; <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship">View repository</a></div>
+    <h1>Which pages should we refresh first?</h1>
+    <p class="dek">Ranking 30,000 content pages by declining search visibility, validated honestly on clients the model has never seen — including where that honesty cost the model 16 points of ROC-AUC.</p>
 
-<nav class="navbar">
-
-    <div class="logo">
-
-        AI Search Intelligence
-
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">0.836</div>
+        <div class="label">Model F1 vs. 0.352 baseline F1, same test split</div>
+      </div>
+      <div class="stat warn">
+        <div class="num">0.635</div>
+        <div class="label">Honest ROC-AUC on unseen clients (down from 0.795)</div>
+      </div>
+      <div class="stat">
+        <div class="num">30,000</div>
+        <div class="label">Pages scored and ranked in the final action queue</div>
+      </div>
     </div>
 
-    <div class="menu-toggle"
-         id="menu-toggle">
-
-        ☰
-
+    <div class="meta-row">
+      <div>Author<span>Muhammad Usman Shakir</span></div>
+      <div>Lane<span>Content Refresh</span></div>
+      <div>Data<span>FlyRank ML Internship dataset</span></div>
+      <div>Date<span>September 2026</span></div>
     </div>
 
-    <ul class="nav-links"
-        id="nav-links">
+    <nav class="toc">
+      <a href="#abstract">Abstract</a>
+      <a href="#intro">Introduction</a>
+      <a href="#data">Data</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#results">Results</a>
+      <a href="#limitations">Limitations</a>
+      <a href="#recommendations">Recommendations</a>
+      <a href="#reproducibility">Reproducibility</a>
+      <a href="#acknowledgments">Acknowledgments</a>
+    </nav>
+  </div>
+</header>
 
-        <li>
-            <a href="index.html">Home</a>
-        </li>
+<main class="wrap">
 
-        <li>
-            <a href="research.html">Research</a>
-        </li>
+  <section id="abstract">
+    <div class="section-head"><span class="section-num">00</span><h2>Abstract</h2></div>
+    <div class="abstract">
+      Which pages should an editorial team review first when deciding what to refresh?
+      This paper uses 30,000 anonymized content pages from FlyRank's Content Refresh
+      dataset, comparing 90-day traffic and engagement signals against a rolling 30-day
+      window to define a declining-visibility label. A Random Forest classifier trained
+      on 23 leak-checked features reaches F1 0.836 against a transparent
+      staleness-and-visibility baseline's F1 0.352 on the same test split — but when
+      validated honestly on clients the model has never seen, ROC-AUC drops from 0.795
+      to 0.635, a result reported here in full rather than hidden. The output is a
+      ranked, reason-coded action queue meant to prioritize human review, not to make
+      unsupervised publishing decisions.
+    </div>
+  </section>
 
-        <li>
-            <a href="methodology.html">Methodology</a>
-        </li>
+  <section id="intro">
+    <div class="section-head"><span class="section-num">01</span><h2>Introduction &amp; problem framing</h2></div>
+    <p>
+      A large content library decays unevenly. Some pages keep earning search visibility
+      indefinitely; others quietly lose ground for months before anyone notices. An
+      editorial team can't manually re-check every page on a fixed schedule, so the
+      practical question isn't <em>"is this page declining?"</em> in isolation — it's
+      <em>"out of everything, what should we look at first?"</em>
+    </p>
+    <p>
+      <strong>Unit of analysis:</strong> one row is one content page. <strong>Output:</strong>
+      a ranked queue, where each page carries a decline-probability score, a reason code
+      explaining the likely driver, and a recommended action. <strong>Action a human
+      takes:</strong> an editor works down the queue and reviews flagged pages against
+      the stated reason — the model narrows the list, a person makes the call.
+    </p>
+    <p>
+      <strong>Cost of a wrong call:</strong> a false positive costs an editor's review
+      time on a page that didn't need it; a false negative delays review of a page that
+      did. Neither is severe in isolation, which is why this stays decision-support
+      rather than an automated action.
+    </p>
+    <p>
+      <strong>Why ML helps here:</strong> whether a page is likely to keep declining
+      depends on several interacting signals at once — staleness, traffic volume,
+      search position, content length, engagement — rather than one clean threshold.
+      A fixed rule can use one or two of these; a model can weigh all of them together
+      and rank by relative risk.
+    </p>
+  </section>
 
-        <li>
-            <a href="results.html">Results</a>
-        </li>
-
-        <li>
-            <a href="recommendations.html">Recommendations</a>
-        </li>
-
-        <li>
-            <a href="about.html">About</a>
-        </li>
-
-        <li>
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank">
-
-                GitHub
-
-            </a>
-        </li>
-
-        <li>
-
-            <button id="theme-toggle">
-
-                🌙
-
-            </button>
-
-        </li>
-
+  <section id="data">
+    <div class="section-head"><span class="section-num">02</span><h2>Data</h2></div>
+    <p>
+      This work uses <code>content_refresh_anonymized.csv</code>, the safe starter
+      release for the Content Refresh lane: 30,000 rows, 44 columns. All
+      <code>content_id</code> and <code>client_id</code> values are pre-anonymized
+      hashes; no raw client names, URLs, or search queries appear anywhere in this
+      dataset or in the accompanying repository.
+    </p>
+    <h3>Deliberately excluded from the model's features</h3>
+    <ul>
+      <li><code>content_id</code>, <code>client_id</code> — identifiers, not predictive signal (<code>client_id</code> is used only for grouping in the honest validation split, never as a feature)</li>
+      <li><code>trend_direction</code>, <code>trend_pct</code> — describe the outcome trend directly and would leak the label</li>
+      <li>The six 30-day window columns (<code>impressions_last_30d</code>, <code>clicks_last_30d</code>, <code>sessions_last_30d</code> and their <code>_prev_30d</code> counterparts) — these build the target; including them as features would let the model see the answer</li>
     </ul>
-
-</nav>
-
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="badge">
-
-            🚀 FlyRank Machine Learning Internship Capstone
-
-        </span>
-
-        <h1>
-
-            AI-Powered <br>
-
-            Content Opportunity Scoring
-
-        </h1>
-
-        <h2>
-
-            Search Intelligence using Machine Learning
-
-        </h2>
-
-        <p class="description">
-
-            An end-to-end Machine Learning project developed during the
-            FlyRank ML Internship that analyzes search intelligence data,
-            predicts content opportunity scores, and provides actionable
-            SEO recommendations using Random Forest Regression.
-
-        </p>
-
-        <div class="buttons">
-
-            <a href="research.html"
-               class="btn primary">
-
-                📄 Explore Research
-
-            </a>
-
-            <a href="results.html"
-               class="btn secondary">
-
-                📊 View Results
-
-            </a>
-
-        </div>
-
+    <div class="callout">
+      <strong>Leakage caught and corrected.</strong> An earlier draft defined the target
+      identically to the baseline rule (<code>days_since_last_update &ge; 90 AND
+      impressions_90d &ge; 1000</code>) and included those same two columns as model
+      inputs. That version scored a perfect 1.0000 across every metric — not a good
+      result, but a deterministic function of its own inputs. It was discarded in favor
+      of the independent, forward-looking target used throughout this paper.
     </div>
-
-    <div class="hero-image">
-
-        <img src="images/ai-illustration.svg"
-             class="hero-img"
-             alt="Artificial Intelligence Illustration">
-
-    </div>
-
-</section>
-<!-- ========================================= -->
-<!-- PROJECT OVERVIEW -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Project Overview
-
-    </h2>
-
-    <div class="card">
-
-        <p>
-
-            The objective of this capstone project is to identify
-            high-value SEO content opportunities using Machine Learning.
-
-            The workflow combines data preprocessing,
-            feature engineering,
-            Random Forest Regression,
-            model evaluation,
-            and explainable analytics to help SEO teams
-            make data-driven decisions.
-
-        </p>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- MACHINE LEARNING WORKFLOW -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Machine Learning Workflow
-
-    </h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>📥</h3>
-
-            <h3>Collect Search Data</h3>
-
-            <p>
-
-                Import search intelligence data from the
-                FlyRank Search Intelligence Warehouse.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>🧹</h3>
-
-            <h3>Clean & Prepare Data</h3>
-
-            <p>
-
-                Handle missing values, transform features,
-                and prepare the dataset for model training.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>🤖</h3>
-
-            <h3>Train Model</h3>
-
-            <p>
-
-                Train a Random Forest Regression model
-                to predict content opportunity scores.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>📊</h3>
-
-            <h3>Evaluate Performance</h3>
-
-            <p>
-
-                Compare the trained model using
-                MAE and R² evaluation metrics.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- WHY THIS PROJECT MATTERS -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Why This Project Matters
-
-    </h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>🌍 Large Scale Data</h3>
-
-            <p>
-
-                Processed millions of search intelligence
-                records from the FlyRank Search Intelligence
-                Warehouse.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>⚡ High Performance</h3>
-
-            <p>
-
-                DuckDB enabled extremely fast querying
-                and efficient analysis of large datasets.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>🧠 Machine Learning</h3>
-
-            <p>
-
-                Random Forest Regression accurately predicts
-                valuable content opportunities for SEO teams.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>📈 Business Value</h3>
-
-            <p>
-
-                Supports data-driven SEO strategies by
-                identifying pages with the greatest
-                optimization potential.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- PERFORMANCE DASHBOARD -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Performance Dashboard
-
-    </h2>
-
-    <div class="stats">
-
-        <div class="stat-card">
-
-            <h2 class="counter"
-                data-target="78">
-
-                78M+
-
-            </h2>
-
-            <p>
-
-                Warehouse Records
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2>
-
-                0.224
-
-            </h2>
-
-            <p>
-
-                Random Forest MAE
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2>
-
-                0.997
-
-            </h2>
-
-            <p>
-
-                R² Score
-
-            </p>
-
-        </div>
-
-        <div class="stat-card">
-
-            <h2>
-
-                5+
-
-            </h2>
-
-            <p>
-
-                Engineered Features
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- PROJECT GALLERY -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Project Gallery
-
-    </h2>
-
-    <p class="section-subtitle">
-
-        Visual insights generated throughout the machine learning workflow.
-
+  </section>
+
+  <section id="methodology">
+    <div class="section-head"><span class="section-num">03</span><h2>Methodology</h2></div>
+    <h3>Baseline</h3>
+    <p>
+      A transparent rule: flag a page <strong>"Review content"</strong> if
+      <code>days_since_last_update &ge; 90</code> AND <code>impressions_90d &ge;
+      1000</code>; otherwise <strong>"Monitor."</strong> Both signals were checked
+      against real data before being trusted — staleness and visibility were each split
+      into buckets and inspected with sample sizes, and both verdicts came back
+      <strong>CONFIRMED</strong>: neither is leaning on a signal that turned out to be
+      noise.
+    </p>
+    <h3>Target</h3>
+    <p>
+      <code>decline_target</code> = 1 when a page's impressions in the most recent
+      30-day window are lower than the prior 30-day window, else 0 — built only from
+      those two window columns, neither of which is a model feature.
+    </p>
+    <h3>Model</h3>
+    <p>
+      Random Forest Classifier (<code>n_estimators=200</code>,
+      <code>random_state=42</code>), chosen because the available signals are tabular
+      and mixed-scale, and their relationship to a decline in visibility is unlikely to
+      be linear — a tree ensemble captures interactions between features without
+      assuming a fixed functional form, and yields feature importances for
+      interpretation. Trained on 23 leak-checked features spanning content descriptors,
+      90-day traffic and engagement, and content metadata.
+    </p>
+    <h3>Validation design</h3>
+    <p>
+      Two splits, deliberately compared: an 80/20 random split stratified on the target
+      (the naive default), and a <code>GroupShuffleSplit</code> grouped by
+      <code>client_id</code>, 80/20, where no client appears in both train and test — 25
+      clients in training, 7 held out entirely, overlap confirmed to be zero. The
+      grouped split is the honest one: it measures generalization to a client the model
+      has never seen, the real deployment scenario.
+    </p>
+  </section>
+
+  <section id="results">
+    <div class="section-head"><span class="section-num">04</span><h2>Results</h2></div>
+
+    <h3>Model vs. baseline — same test split, same target</h3>
+    <table>
+      <thead><tr><th>Metric</th><th class="num">Majority-class rate</th><th class="num">Baseline rule</th><th class="num">Random Forest</th><th class="num">Improvement</th></tr></thead>
+      <tbody>
+        <tr><td>Accuracy</td><td class="num">0.6572</td><td class="num">0.4542</td><td class="num">0.7647</td><td class="num">+0.3105</td></tr>
+        <tr><td>F1-score</td><td class="num">&mdash;</td><td class="num">0.3516</td><td class="num">0.8355</td><td class="num">+0.4839</td></tr>
+        <tr><td>Precision</td><td class="num">&mdash;</td><td class="num">0.8014</td><td class="num">0.7727</td><td class="num">&minus;0.0288</td></tr>
+        <tr><td>Recall</td><td class="num">&mdash;</td><td class="num">0.2252</td><td class="num">0.9095</td><td class="num">+0.6843</td></tr>
+        <tr><td>ROC-AUC</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">0.7952</td><td class="num">&mdash;</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="charts/model_vs_baseline.png" alt="Bar chart comparing the Week-4 baseline rule against the Week-5 Random Forest across accuracy, F1, precision and recall, with a dashed line marking the majority-class rate.">
+      <figcaption>The baseline is more precise (0.80) but has low recall (0.23) — it rarely flags a page, and is usually right when it does, but misses most pages that are actually declining. The model trades a little precision for much higher recall and F1.</figcaption>
+    </figure>
+
+    <h3>Same model, same features — only the split changes</h3>
+    <table>
+      <thead><tr><th>Metric</th><th class="num">Random split</th><th class="num">Grouped by client</th><th class="num">Change</th></tr></thead>
+      <tbody>
+        <tr><td>Accuracy</td><td class="num">0.7617</td><td class="num">0.6338</td><td class="num">&minus;0.1279</td></tr>
+        <tr><td>F1-score</td><td class="num">0.8329</td><td class="num">0.7268</td><td class="num">&minus;0.1062</td></tr>
+        <tr><td>Precision</td><td class="num">0.7721</td><td class="num">0.6835</td><td class="num">&minus;0.0886</td></tr>
+        <tr><td>Recall</td><td class="num">0.9041</td><td class="num">0.7759</td><td class="num">&minus;0.1282</td></tr>
+        <tr><td>ROC-AUC</td><td class="num">0.7951</td><td class="num">0.6351</td><td class="num">&minus;0.1600</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="charts/honest_validation_drop.png" alt="Bar chart comparing the same model's metrics under a random split versus a client-grouped split, showing a consistent drop under the honest split.">
+      <figcaption>Every metric drops under the honest, client-grouped split — most sharply ROC-AUC, down 0.16. This is the point of the exercise: the random split let the model partly memorize client-specific patterns; the grouped split is the more honest estimate of performance on a brand-new client.</figcaption>
+    </figure>
+
+    <h3>Errors</h3>
+    <p>
+      Of 6,000 test rows (random split), the model produced 1,412 misclassifications
+      (23.5% error rate) — 1,055 false positives and 357 false negatives, confusion
+      matrix <code>[[1002, 1055], [357, 3586]]</code>. The model over-flags more than it
+      under-flags, which fits its intended use: a false positive costs an editor a
+      look, a false negative costs a missed cycle.
     </p>
 
-    <div class="gallery">
+    <h3>Interpretation</h3>
+    <figure>
+      <img src="charts/feature_importance.png" alt="Horizontal bar chart of the top 10 Random Forest feature importances, led by impressions_90d, avg_position, and days_with_impressions.">
+      <figcaption>The model is driven mostly by sustained visibility and average search position, not by simple content attributes like word count.</figcaption>
+    </figure>
+    <p>
+      A page's ongoing traffic pattern matters more to the prediction than how long the
+      content is. These importances describe how the Random Forest split on the
+      available features; they are not causal claims about what causes a decline.
+    </p>
+  </section>
 
-        <div class="gallery-card">
+  <section id="limitations">
+    <div class="section-head"><span class="section-num">05</span><h2>Limitations</h2></div>
+    <ul>
+      <li><code>decline_target</code> is a rule-derived proxy for declining visibility, not a human-verified judgment that a page needs a refresh.</li>
+      <li>The client-grouped validation shows a real but modest generalization gap — ROC-AUC 0.795 on a random split versus 0.635 on unseen clients, only somewhat above chance.</li>
+      <li>The production scoring pass used for ranking (Section 6) fits on all available rows, so its probability values are not calibrated confidence and skew high (median 0.87) — the <em>ranking</em> is the useful output, not the raw number.</li>
+      <li>No causal claims are made anywhere in this work. All language is observed, measured, directional, or decision-support.</li>
+    </ul>
+  </section>
 
-            <img src="images/feature_importance.png"
-                 alt="Feature Importance">
-
-            <div class="gallery-content">
-
-                <h3>
-
-                    Feature Importance
-
-                </h3>
-
-                <p>
-
-                    Shows which engineered features contributed the most
-                    toward predicting content opportunity scores.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-card">
-
-            <img src="images/model_comparison.png"
-                 alt="Model Comparison">
-
-            <div class="gallery-content">
-
-                <h3>
-
-                    Model Comparison
-
-                </h3>
-
-                <p>
-
-                    Performance comparison between the baseline
-                    predictor and the Random Forest Regression model.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="gallery-card">
-
-            <img src="images/opportunity_distribution.png"
-                 alt="Opportunity Distribution">
-
-            <div class="gallery-content">
-
-                <h3>
-
-                    Opportunity Distribution
-
-                </h3>
-
-                <p>
-
-                    Distribution of predicted content opportunity
-                    scores across the complete dataset.
-
-                </p>
-
-            </div>
-
-        </div>
-
+  <section id="recommendations">
+    <div class="section-head"><span class="section-num">06</span><h2>Ranked recommendations</h2></div>
+    <p>
+      The trained model scores all 30,000 pages for <code>decline_probability</code> and
+      ranks them highest-risk first. Each row carries a reason code explaining the
+      likely driver and a recommended action.
+    </p>
+    <table>
+      <thead><tr><th>Reason code</th><th class="num">Pages</th><th>Meaning</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>LOW_TRAFFIC_SIGNAL</td><td class="num">12,622</td><td>Under 1,000 impressions in 90 days</td><td>Review search visibility / coverage</td></tr>
+        <tr><td>DECAY_SIGNAL_HIGH</td><td class="num">9,345</td><td>Not updated in 91+ days</td><td>Review and refresh stale content</td></tr>
+        <tr><td>REVIEW_REQUIRED</td><td class="num">6,909</td><td>No single dominant signal</td><td>Manual content review</td></tr>
+        <tr><td>LOW_CTR_SIGNAL</td><td class="num">1,124</td><td>Click-through rate under 5%</td><td>Review title / result presentation</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="charts/reason_code_distribution.png" alt="Horizontal bar chart of reason code counts across 30,000 scored pages, led by LOW_TRAFFIC_SIGNAL and DECAY_SIGNAL_HIGH.">
+      <figcaption>Reason-code distribution across all 30,000 scored pages.</figcaption>
+    </figure>
+    <p>
+      <strong>How an editor uses this tomorrow:</strong> open the queue, start at rank
+      1, and work down as review capacity allows — the reason code says what to check
+      first on each page, without needing to interpret a raw probability.
+    </p>
+    <div class="callout">
+      <strong>Nothing here should be automated without human review.</strong> No page
+      should be edited, republished, or deprioritized based solely on this score. The
+      model's honestly-validated discrimination on unseen clients (ROC-AUC 0.635) is
+      modest, so this queue is a starting point for review, not a verdict.
     </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- MEET THE DEVELOPER -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Meet the Developer
-
-    </h2>
-
-    <div class="developer-card">
-
-        <img src="images/profile.png"
-             alt="Muhammad Usman Shakir"
-             class="developer-photo">
-
-        <h2>
-
-            Muhammad Usman Shakir
-
-        </h2>
-
-        <p class="developer-role">
-
-            Software Engineering Student • Machine Learning Intern
-
-        </p>
-
-        <p class="developer-description">
-
-            Passionate about Artificial Intelligence, Machine Learning,
-            Data Science, and Search Intelligence.
-
-            This capstone project demonstrates practical experience in
-            data preprocessing, feature engineering,
-            Random Forest Regression,
-            model evaluation,
-            data visualization,
-            and deployment using GitHub Pages.
-
-        </p>
-
-        <div class="developer-tags">
-
-            <span>🎓 PUCIT</span>
-
-            <span>🤖 FlyRank Intern</span>
-
-            <span>🐍 Python</span>
-
-            <span>🧠 Machine Learning</span>
-
-        </div>
-
-        <div class="developer-buttons">
-
-            <a href="about.html"
-               class="btn primary">
-
-                About Me
-
-            </a>
-
-            <a href="https://github.com/muhammadusmanshakir"
-               target="_blank"
-               class="btn secondary">
-
-                GitHub
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- CALL TO ACTION -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <div class="card"
-         style="text-align:center;">
-
-        <h2>
-
-            Explore the Complete Project
-
-        </h2>
-
-        <br>
-
-        <p>
-
-            Dive deeper into the research, methodology,
-            implementation, machine learning workflow,
-            experimental results, and recommendations
-            developed during the FlyRank Machine Learning Internship.
-
-        </p>
-
-        <br><br>
-
-        <a href="research.html"
-           class="btn primary">
-
-            Start Exploring
-
-        </a>
-
-        <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-           target="_blank"
-           class="btn secondary">
-
-            GitHub Repository
-
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
-
-<footer class="footer">
-
-    <div class="footer-content">
-
-        <h2>
-
-            AI-Powered Content Opportunity Scoring
-
-        </h2>
-
-        <p>
-
-            FlyRank Machine Learning Internship Capstone
-
-        </p>
-
-        <div class="footer-links">
-
-            <a href="index.html">Home</a>
-
-            <a href="research.html">Research</a>
-
-            <a href="methodology.html">Methodology</a>
-
-            <a href="results.html">Results</a>
-
-            <a href="recommendations.html">Recommendations</a>
-
-            <a href="about.html">About</a>
-
-        </div>
-
-        <div class="footer-buttons">
-
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank"
-               class="btn secondary">
-
-                GitHub Repository
-
-            </a>
-
-            <a href="https://www.linkedin.com/in/muhammadusmanshakir/"
-               target="_blank"
-               class="btn primary">
-
-                LinkedIn
-
-            </a>
-
-        </div>
-
-        <p class="copyright">
-
-            © 2026 Muhammad Usman Shakir • Built with HTML, CSS, JavaScript, Python & Machine Learning
-
-        </p>
-
-    </div>
-
+    <h3>Monitoring / retrain triggers</h3>
+    <p>
+      Re-score monthly as new 90-day and 30-day windows roll forward. Retrain if the
+      honest (grouped) ROC-AUC on a fresh held-out client sample drops further below the
+      0.635 baseline established here, or if the reason-code distribution shifts
+      sharply from the proportions above — a signal that underlying traffic patterns
+      have changed enough that the model's assumptions may no longer hold.
+    </p>
+  </section>
+
+  <section id="reproducibility">
+    <div class="section-head"><span class="section-num">07</span><h2>Reproducibility</h2></div>
+    <p>To re-run this work from a fresh clone:</p>
+    <div class="repro-block"><div>git clone https://github.com/muhammadusmanshakir/flyrank-ml-internship.git
+cd flyrank-ml-internship
+pip install -r requirements.txt</div></div>
+    <p style="margin-top:16px;">
+      Then run, in order: <code>work/notebooks/w04_baseline_score.ipynb</code>,
+      <code>work/notebooks/w05_model.ipynb</code>,
+      <code>work/notebooks/w06_validation_audit.ipynb</code>,
+      <code>work/notebooks/w07_action_playbook.ipynb</code>, and
+      <code>work/notebooks/capstone.ipynb</code>.
+    </p>
+    <p>
+      <code>random_state=42</code> throughout, for both <code>train_test_split</code>
+      and <code>GroupShuffleSplit</code>, and for <code>RandomForestClassifier</code>.
+      Environment: <code>pandas==2.2.3</code>, <code>scikit-learn==1.6.1</code> (see
+      <code>requirements.txt</code> for the full pinned list).
+    </p>
+    <p>
+      The client-grouped test set (7 clients, held out via <code>GroupShuffleSplit</code>
+      with <code>random_state=42</code>) was evaluated once; the cell that builds this
+      split lives in <code>work/notebooks/w06_validation_audit.ipynb</code>, with output
+      metrics printed directly in that notebook's committed, executed output — checkable
+      from the repository, not taken on faith. Full source, notebooks, and the
+      supporting <code>work/capstone_report.md</code> are in the linked repository.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap ack" id="acknowledgments">
+    Built on the <a href="https://flyrank.ai" target="_blank" rel="noopener">FlyRank ML Internship dataset</a>.
+  </div>
 </footer>
 
-<!-- ========================================= -->
-<!-- BACK TO TOP BUTTON -->
-<!-- ========================================= -->
-
-<button id="topBtn">
-
-    ↑
-
-</button>
-
-<!-- ========================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================= -->
-
-<script src="script.js"></script>
-
 </body>
-
 </html>
-
