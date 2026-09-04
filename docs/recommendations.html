@@ -1,667 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Recommendations from the AI-Powered Content Opportunity Scoring project developed during the FlyRank Machine Learning Internship.">
-
-    <title>Recommendations | AI-Powered Content Opportunity Scoring</title>
-
-    <!-- Google Fonts -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Main CSS -->
-
-    <link rel="stylesheet"
-          href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The ranked, reason-coded action queue, limitations, monitoring plan, and reproducibility.">
+<title>Recommendations | Content Refresh Prioritization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- ========================================= -->
-<!-- NAVIGATION -->
-<!-- ========================================= -->
-
 <nav class="navbar">
-
-    <div class="logo">
-
-        AI Search Intelligence
-
-    </div>
-
-    <div class="menu-toggle"
-         id="menu-toggle">
-
-        ☰
-
-    </div>
-
-    <ul class="nav-links"
-        id="nav-links">
-
-        <li>
-
-            <a href="index.html">
-
-                Home
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="research.html">
-
-                Research
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="methodology.html">
-
-                Methodology
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="results.html">
-
-                Results
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="recommendations.html">
-
-                Recommendations
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="about.html">
-
-                About
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank">
-
-                GitHub
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <button id="theme-toggle">
-
-                🌙
-
-            </button>
-
-        </li>
-
+    <div class="logo">Content Refresh Prioritization</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="recommendations.html" class="active">Recommendations</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank">GitHub</a></li>
+        <li><button id="theme-toggle">🌙</button></li>
     </ul>
-
 </nav>
 
-<!-- ========================================= -->
-<!-- HERO -->
-<!-- ========================================= -->
-
 <section class="hero">
-
     <div class="hero-content">
-
-        <span class="badge">
-
-            🚀 FlyRank Machine Learning Internship
-
-        </span>
-
-        <h1>
-
-            Recommendations
-
-        </h1>
-
-        <h2>
-
-            Turning Machine Learning Insights into Action
-
-        </h2>
-
+        <span class="badge">✅ Recommendations</span>
+        <h1>From score to action</h1>
+        <h2>A ranked, reason-coded queue &mdash; built for human review</h2>
         <p class="description">
-
-            The trained Random Forest Regression model provides
-            practical insights that help SEO teams identify
-            high-value content opportunities, prioritize
-            optimization efforts, and make informed,
-            data-driven decisions.
-
+            The trained model scores all 30,000 pages for decline probability and ranks
+            them highest-risk first. Each row carries a reason code explaining the likely
+            driver and a recommended action.
         </p>
-
     </div>
-
     <div class="hero-image">
-
-        <img src="images/ai-illustration.svg"
-             class="hero-img"
-             alt="Artificial Intelligence Illustration">
-
+        <img src="images/ai-illustration.svg" class="hero-img" alt="Recommendations illustration">
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- EXECUTIVE SUMMARY -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Executive Summary
-
-    </h2>
-
+    <h2 class="section-title">Executive summary</h2>
     <div class="card">
-
-        <p>
-
-            The AI-Powered Content Opportunity Scoring model
-            successfully predicts which content has the greatest
-            optimization potential.
-
-            Instead of manually reviewing thousands of pages,
-            SEO professionals can focus on high-impact content
-            identified by the machine learning model,
-            improving efficiency while maximizing business value.
-
+        <p style="margin:0;">
+            Instead of manually reviewing thousands of pages, an editorial team can start
+            at rank 1 and work down as review capacity allows &mdash; the reason code says
+            what to check first on each page, without needing to interpret a raw
+            probability.
         </p>
-
     </div>
-
-</section>
-<!-- ========================================= -->
-<!-- RANKED RECOMMENDATIONS -->
-<!-- ========================================= -->
-
-<section class="section">
-
-    <h2 class="section-title">
-
-        Ranked Recommendations
-
-    </h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>
-
-                🚀 High-Priority Opportunities
-
-            </h3>
-
-            <p>
-
-                Prioritize pages with the highest predicted
-                opportunity scores. These pages are expected to
-                deliver the greatest SEO improvements with
-                relatively low optimization effort.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                ✍️ Refresh Existing Content
-
-            </h3>
-
-            <p>
-
-                Improve underperforming content before creating
-                entirely new pages. Updating valuable content
-                is often more cost-effective and can generate
-                faster ranking improvements.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                📈 Monitor Performance
-
-            </h3>
-
-            <p>
-
-                Continuously compare model predictions with
-                actual search performance to validate results
-                and improve future prediction accuracy.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                🤖 AI-Assisted Decision Making
-
-            </h3>
-
-            <p>
-
-                Integrate machine learning predictions into
-                existing SEO workflows to support smarter,
-                faster, and more consistent optimization
-                decisions.
-
-            </p>
-
-        </div>
-
-    </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- BUSINESS IMPACT -->
-<!-- ========================================= -->
+<section class="section">
+    <h2 class="section-title">Reason-code breakdown</h2>
+    <div class="card" style="margin-bottom:20px;">
+        <table class="results-table">
+            <thead><tr><th>Reason code</th><th>Pages</th><th>Meaning</th><th>Action</th></tr></thead>
+            <tbody>
+                <tr><td>LOW_TRAFFIC_SIGNAL</td><td>12,622</td><td>Under 1,000 impressions in 90 days</td><td>Review search visibility / coverage</td></tr>
+                <tr><td>DECAY_SIGNAL_HIGH</td><td>9,345</td><td>Not updated in 91+ days</td><td>Review and refresh stale content</td></tr>
+                <tr><td>REVIEW_REQUIRED</td><td>6,909</td><td>No single dominant signal</td><td>Manual content review</td></tr>
+                <tr><td>LOW_CTR_SIGNAL</td><td>1,124</td><td>Click-through rate under 5%</td><td>Review title / result presentation</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="chart-card">
+        <img src="charts/reason_code_distribution.png" class="chart" alt="Reason code distribution chart">
+        <p class="caption"><strong>Figure 4.</strong> Reason-code distribution across all 30,000 scored pages.</p>
+    </div>
+</section>
 
 <section class="section">
+    <div class="callout">
+        <strong>Nothing here should be automated without human review.</strong> No page
+        should be edited, republished, or deprioritized based solely on this score. The
+        model's honestly-validated discrimination on unseen clients (ROC-AUC 0.635) is
+        modest, so this queue is a starting point for review, not a verdict.
+    </div>
+</section>
 
-    <h2 class="section-title">
-
-        Business Impact
-
-    </h2>
-
+<section class="section">
+    <h2 class="section-title">Limitations</h2>
     <div class="card">
-
         <ul>
-
-            <li>
-
-                Reduce the time required for manual SEO analysis.
-
-            </li>
-
-            <li>
-
-                Identify high-value content opportunities using
-                predictive analytics.
-
-            </li>
-
-            <li>
-
-                Prioritize optimization efforts based on data
-                instead of assumptions.
-
-            </li>
-
-            <li>
-
-                Improve allocation of marketing resources.
-
-            </li>
-
-            <li>
-
-                Enable scalable content optimization strategies.
-
-            </li>
-
-            <li>
-
-                Support data-driven decision making across SEO
-                teams.
-
-            </li>
-
+            <li><code>decline_target</code> is a rule-derived proxy for declining visibility, not a human-verified judgment that a page needs a refresh.</li>
+            <li>The client-grouped validation shows a real but modest generalization gap &mdash; only somewhat above chance on unseen clients.</li>
+            <li>The production scoring pass fits on all available rows, so probability values skew high and are not calibrated confidence &mdash; the ranking is the useful part.</li>
+            <li>No causal claims are made anywhere in this work. All language is observed, measured, directional, or decision-support.</li>
         </ul>
-
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- LIMITATIONS -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Limitations
-
-    </h2>
-
+    <h2 class="section-title">Monitoring &amp; retrain triggers</h2>
     <div class="card">
-
-        <ul>
-
-            <li>
-
-                Prediction quality depends on the completeness
-                and quality of the available dataset.
-
-            </li>
-
-            <li>
-
-                The model was trained using historical search
-                performance data and may not fully capture future
-                search trends.
-
-            </li>
-
-            <li>
-
-                Search engine algorithm updates can influence
-                prediction accuracy over time.
-
-            </li>
-
-            <li>
-
-                Additional business, competitor, or user behavior
-                features may further improve predictive
-                performance.
-
-            </li>
-
-        </ul>
-
+        <p style="margin:0;">
+            Re-score monthly as new 90-day and 30-day windows roll forward. Retrain if the
+            honest (grouped) ROC-AUC on a fresh held-out client sample drops further below
+            the 0.635 baseline established here, or if the reason-code distribution shifts
+            sharply from the proportions above.
+        </p>
     </div>
-
 </section>
 
-<!-- ========================================= -->
-<!-- FUTURE IMPROVEMENTS -->
-<!-- ========================================= -->
-
 <section class="section">
-
-    <h2 class="section-title">
-
-        Future Improvements
-
-    </h2>
-
-    <div class="overview-grid">
-
-        <div class="overview-card">
-
-            <h3>
-
-                ⚡ Advanced Models
-
-            </h3>
-
-            <p>
-
-                Evaluate Gradient Boosting, XGBoost,
-                LightGBM, and CatBoost to compare
-                predictive performance.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                🌐 Web Deployment
-
-            </h3>
-
-            <p>
-
-                Deploy the trained model as an interactive
-                web application for real-time predictions.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                📊 Interactive Dashboard
-
-            </h3>
-
-            <p>
-
-                Develop a dashboard with visual analytics,
-                filtering, and live opportunity ranking.
-
-            </p>
-
-        </div>
-
-        <div class="overview-card">
-
-            <h3>
-
-                🧠 Deep Learning
-
-            </h3>
-
-            <p>
-
-                Investigate neural network approaches and
-                transformer-based models for future research.
-
-            </p>
-
-        </div>
-
-    </div>
-
+    <h2 class="section-title">Reproducibility</h2>
+    <div class="repro-block"><div>git clone https://github.com/muhammadusmanshakir/flyrank-ml-internship.git
+cd flyrank-ml-internship
+pip install -r requirements.txt</div></div>
+    <p style="margin-top:14px; font-size:14.5px; color:var(--ink-soft);">
+        Then run, in order: <code>w04_baseline_score.ipynb</code> &rarr;
+        <code>w05_model.ipynb</code> &rarr; <code>w06_validation_audit.ipynb</code> &rarr;
+        <code>w07_action_playbook.ipynb</code> &rarr; <code>capstone.ipynb</code>, all under
+        <code>work/notebooks/</code>. <code>random_state=42</code> throughout.
+    </p>
 </section>
-<!-- ========================================= -->
-<!-- CALL TO ACTION -->
-<!-- ========================================= -->
 
 <section class="section">
-
     <div class="card" style="text-align:center;">
-
-        <h2>
-
-            Explore the Complete Machine Learning Project
-
-        </h2>
-
-        <br>
-
-        <p>
-
-            Learn more about the research process, methodology,
-            model evaluation, and implementation details by
-            exploring the remaining sections of this project.
-
+        <h2 style="margin-top:0;">Built on the FlyRank ML Internship dataset</h2>
+        <p style="margin:0 0 16px;">
+            <a href="https://flyrank.ai" target="_blank">flyrank.ai</a> &mdash; crediting the data source is standard research practice.
         </p>
-
-        <br><br>
-
-        <a href="results.html"
-           class="btn primary">
-
-            View Results
-
-        </a>
-
-        <a href="about.html"
-           class="btn secondary">
-
-            About the Developer
-
-        </a>
-
+        <a href="about.html" class="btn secondary">About the Developer</a>
+        <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank" class="btn primary">GitHub Repository</a>
     </div>
-
 </section>
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
 
 <footer class="footer">
-
     <div class="footer-content">
-
-        <h2>
-
-            AI-Powered Content Opportunity Scoring
-
-        </h2>
-
-        <p>
-
-            FlyRank Machine Learning Internship Capstone
-
-        </p>
-
+        <h2>Content Refresh Prioritization</h2>
+        <p>FlyRank Machine Learning Internship Capstone &middot; Muhammad Usman Shakir</p>
         <div class="footer-links">
-
-            <a href="index.html">
-
-                Home
-
-            </a>
-
-            <a href="research.html">
-
-                Research
-
-            </a>
-
-            <a href="methodology.html">
-
-                Methodology
-
-            </a>
-
-            <a href="results.html">
-
-                Results
-
-            </a>
-
-            <a href="recommendations.html">
-
-                Recommendations
-
-            </a>
-
-            <a href="about.html">
-
-                About
-
-            </a>
-
+            <a href="index.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="results.html">Results</a>
+            <a href="recommendations.html">Recommendations</a>
+            <a href="about.html">About</a>
         </div>
-
         <div class="footer-buttons">
-
-            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship"
-               target="_blank"
-               class="btn secondary">
-
-                GitHub Repository
-
-            </a>
-
-            <a href="https://www.linkedin.com/in/muhammadusmanshakir/"
-               target="_blank"
-               class="btn primary">
-
-                LinkedIn
-
-            </a>
-
+            <a href="https://github.com/muhammadusmanshakir/flyrank-ml-internship" target="_blank" class="btn secondary">GitHub Repository</a>
+            <a href="https://www.linkedin.com/in/muhammadusmanshakir" target="_blank" class="btn primary">LinkedIn</a>
         </div>
-
-        <p class="copyright">
-
-            © 2026 Muhammad Usman Shakir • Built with HTML, CSS,
-            JavaScript & Machine Learning
-
-        </p>
-
+        <p class="copyright">Built on the <a href="https://flyrank.ai" target="_blank">FlyRank ML Internship dataset</a>. &copy; 2026 Muhammad Usman Shakir.</p>
     </div>
-
 </footer>
-
-<!-- ========================================= -->
-<!-- BACK TO TOP BUTTON -->
-<!-- ========================================= -->
-
-<button id="topBtn">
-
-    ↑
-
-</button>
-
-<!-- ========================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================= -->
-
+<button id="topBtn">↑</button>
 <script src="script.js"></script>
-
 </body>
-
 </html>
